@@ -1,6 +1,6 @@
-const password1 = "Password2";
-const password2 = "Password2";
-const username = "James";
+const password1 = "Pass1234";
+const password2 = "Pass1234";
+const username = "John";
 
 function validatePassword (password1, password2)
 {
@@ -20,7 +20,6 @@ function validatePassword (password1, password2)
             }
             if (password1[i] >= 0 && password1[i] <= 9) 
             {
-                char--;
                 number++;
                 isnumber = true;
             }
@@ -70,9 +69,22 @@ function reversePassword(password1)
     return reversedPassword;
 }
 
+function objectPassword (password1, reversedPassword, username)
+{
+        let account = 
+        {
+            username: username,
+            actual_password: password1,
+            new_password: reversedPassword
+        }
+
+        return account;
+}
+
 var validated = validatePassword(password1,password2);
 
 if (validated)
 {
     reversedPassword = reversePassword(password1);   
+    console.log(objectPassword(password1, reversedPassword, username));
 }
